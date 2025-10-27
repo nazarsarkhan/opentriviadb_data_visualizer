@@ -1,0 +1,64 @@
+.chartWrapper {
+  display: grid;
+  gap: clamp(12px, 3vw, 20px);
+  padding: clamp(6px, 1.5vw, 12px);
+  width: 100%;
+  border-radius: 12px;
+  transition: color 160ms ease;
+  place-items: center;
+}
+
+.chart {
+  width: 100%;
+  min-height: clamp(240px, 60vw, 400px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .chart {
+    min-height: clamp(220px, 60vw, 360px);
+  }
+}
+
+.title {
+  margin: 0 0 8px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.inlineLabels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 16px;
+  line-height: 1;
+}
+
+.inlineLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.labelText {
+  font-weight: 600;
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chartWrapper {
+    transition: none;
+  }
+}

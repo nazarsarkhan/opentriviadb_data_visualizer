@@ -1,0 +1,52 @@
+.list {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  align-items: start;
+  padding: 4px 4px 8px;
+  border-bottom: 1px dashed color-mix(in oklab, var(--text) 12%, transparent);
+}
+
+.pill {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  border: 1px solid color-mix(in oklab, var(--text) 15%, transparent);
+  background: color-mix(in oklab, var(--chip) 80%, transparent);
+}
+
+.pillEasy   { background: color-mix(in oklab, var(--diff-easy) 25%, transparent); }
+.pillMedium { background: color-mix(in oklab, var(--diff-medium) 25%, transparent); }
+.pillHard   { background: color-mix(in oklab, var(--diff-hard) 25%, transparent); }
+
+.q {
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+@media (max-width: 640px) {
+  .item {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding-inline: 0;
+  }
+  .pill {
+    justify-self: flex-start;
+    font-size: 11px;
+  }
+}

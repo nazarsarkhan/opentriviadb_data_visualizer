@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap");
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  min-height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Manrope", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+body { font-size: clamp(15px, 1.8vw, 17px); }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.app {
+  width: 100%;
+  max-width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: clamp(12px, 4vw, 40px);
+  display: grid;
+  gap: clamp(16px, 3vw, 28px);
+  grid-auto-rows: minmax(min-content, auto);
+}
+
+.app__header { margin: 0; }
+.app__header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.app__header p {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: clamp(14px, 2.6vw, 16px);
+}
+
+.card {
+  width: 100%;
+  margin: 0;
+  padding: clamp(10px, 3vw, 22px);
+  background: var(--card);
+  border: 1px solid color-mix(in oklab, var(--text) 15%, transparent);
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  position: relative;
+}
+.card:focus-within {
+  border-color: color-mix(in oklab, var(--accent) 35%, transparent);
+}
+.card h2 {
+  margin: 0 0 8px;
+  font-size: clamp(20px, 3.2vw, 24px);
+  font-weight: 600;
+  transition: color 160ms ease;
+}
+
+.center { text-align: center; }
+.error  { border-color: var(--danger); }
+.muted  { color: var(--muted); font-size: 14px; }
+
+.toolbar {
+  width: 100%;
+  display: grid;
+  gap: 16px;
+}
+.toolbar__group { display: grid; gap: 6px; align-items: center; }
+.toolbar__stats { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-start; }
+
+label { font-weight: 600; }
+
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, var(--text) 20%, transparent);
+  background: var(--chip);
+  color: var(--text);
+  outline: none;
+  appearance: none;
+}
+select:hover { border-color: var(--accent); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  margin-inline-start: 8px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--chip) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+}
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, var(--text) 15%, transparent);
+  background: var(--chip);
+  color: var(--text);
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--accent); }
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 14px color-mix(in oklab, var(--accent) 35%, transparent);
+}
+.btn-primary:hover { filter: brightness(1.05); }
+
+.grid {
+  display: grid;
+  gap: clamp(14px, 2.5vw, 24px);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+.grid > .card {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 18px);
+  height: 100%;
+}
+
+.recharts-cartesian-axis-tick-value tspan,
+.recharts-text tspan {
+  fill: var(--text);
+  font-weight: 600;
+}
+.recharts-legend-item-text {
+  color: var(--text);
+  fill: var(--text);
+  font-weight: 700;
+  opacity: 1;
+}
+.recharts-default-tooltip {
+  background: var(--card) !important;
+  border: 1px solid color-mix(in oklab, var(--text) 15%, transparent) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+
+@media (min-width: 680px) {
+  .toolbar {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: end;
+  }
+  .toolbar__stats { justify-content: flex-end; }
+}
+
+@media (min-width: 920px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1200px) {
+  .app  { max-width: 1180px; }
+  .grid { gap: clamp(20px, 3vw, 30px); }
+}
+
+@media (max-width: 600px) {
+  .app { padding: clamp(10px, 4vw, 16px); }
+  .card { padding: 14px; border-radius: 12px; }
+  .toolbar { gap: 12px; }
+  .toolbar__group { gap: 4px; }
+  select { font-size: 14px; padding: 8px 10px; }
+  .badge { font-size: 11px; padding: 5px 8px; }
+  .btn, .btn-primary { width: 100%; font-size: 14px; padding: 8px 12px; }
+  .muted { font-size: 13px; }
+  .recharts-legend-wrapper { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card h2 { transition: none; }
+}

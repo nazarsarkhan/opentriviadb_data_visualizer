@@ -1,0 +1,15 @@
+:root {
+  --bg: #0f1115;
+  --card: #161a22;
+  --text: #e6e8ef;
+  --muted: #aeb7c5;
+  --accent: #3b82f6;
+  --chip: #232735;
+  --chip-active: #3b82f6;
+  --chip-active-text: #0b1220;
+  --danger: #ef4444;
+
+  --diff-easy: #22c55e;
+  --diff-medium: #eab308;
+  --diff-hard: #ef4444;
+}
