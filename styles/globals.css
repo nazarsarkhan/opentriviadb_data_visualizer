@@ -80,14 +80,24 @@ label { font-weight: 600; }
 
 select {
   width: 100%;
-  padding: 10px 12px;
+  padding: 10px 36px 10px 12px; 
   border-radius: 10px;
   border: 1px solid color-mix(in oklab, var(--text) 20%, transparent);
   background: var(--chip);
   color: var(--text);
   outline: none;
   appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23aaa' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  cursor: pointer;
 }
+
+select::-ms-expand {
+  display: none;
+}
+
 select:hover { border-color: var(--accent); }
 
 .badge {
